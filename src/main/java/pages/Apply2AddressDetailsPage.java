@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.ConfigFileReader;
+import utilities.Sleep;
 import utilities.WaitForElement;
 
 public class Apply2AddressDetailsPage extends ApplyBasePage
@@ -28,9 +30,10 @@ public class Apply2AddressDetailsPage extends ApplyBasePage
 	public WebElement findAddress;
 	
 	
-	public void inputPostcode(String postcode)
+	public void inputPostcode()
 	{
 		postcodeBox.clear();
+		String postcode = ConfigFileReader.getRandomPostcode();
 		postcodeBox.sendKeys(postcode);
 	}
 	
@@ -69,10 +72,14 @@ public class Apply2AddressDetailsPage extends ApplyBasePage
 	public void completeResidentialStatusValid()
 	{
 		selectResidentialStatus();
+		Sleep.sleep();
 		selectMonthsAtAddress();
+		Sleep.sleep();
 		selectYearsAtAddressMoreThanThree();
+		Sleep.sleep();
 		driver.findElement(By.id("continue_address")).click();
 		WaitForElement.id("finances", driver);
+		Sleep.sleep();
 	}
 	
 	

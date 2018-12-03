@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.ConfigFileReader;
+import utilities.Sleep;
 import utilities.WaitForElement;
 
 public class Apply1AboutYouPage extends ApplyBasePage
@@ -99,9 +101,10 @@ public class Apply1AboutYouPage extends ApplyBasePage
 		title.selectByIndex(new Random().nextInt(title.getOptions().size() - 1) + 1);
 	}
 	
-	public void inputFirstName(String firstName)
+	public void inputFirstName()
 	{
 		firstNameBox.clear();
+		String firstName = ConfigFileReader.getRandomFirstName();
 		firstNameBox.sendKeys(firstName);
 	}
 	
@@ -111,9 +114,10 @@ public class Apply1AboutYouPage extends ApplyBasePage
 		middleNameBox.sendKeys(middleName);
 	}
 	
-	public void inputSurname(String surname)
+	public void inputSurname()
 	{
 		surnameBox.clear();
+		String surname = ConfigFileReader.getRandomSurname();
 		surnameBox.sendKeys(surname);
 	}
 	
@@ -207,27 +211,46 @@ public class Apply1AboutYouPage extends ApplyBasePage
 	public void clickContinue()
 	{
 		continueButton.click();
-		WaitForElement.id("PrimaryApplicant_CurrentAddressPostcode", driver);
 	}
 
 	
-	public void completeMandatoryDetailsValid (String firstName, String surname,String homePhoneNumber,String email)
+	public void completeMandatoryDetailsValid (String homePhoneNumber,String email)
 	{
 		selectTitle();
-		inputFirstName(firstName);
-		inputSurname(surname);
+		Sleep.sleep();
+		inputFirstName();
+		Sleep.sleep();
+		inputSurname();
+		Sleep.sleep();
 		haveYouBeenKnownByAnyOtherNames();
-		areYouKnownByAnyOtherNames();;
+		Sleep.sleep();
+		areYouKnownByAnyOtherNames();
+		Sleep.sleep();
 		selectGender();
+		Sleep.sleep();
 		selectDayOfBirth();
+		Sleep.sleep();
 		selectMonthOfBirth();
+		Sleep.sleep();
 		SelectYearOfBirth();
+		Sleep.sleep();
 		selectNationality();
-		otherNationalities();;
+		Sleep.sleep();
+		otherNationalities();
+		Sleep.sleep();
 		selectMaritalStatus();
+		Sleep.sleep();
 		inputHomePhoneNumber(homePhoneNumber);
+		Sleep.sleep();
 		inputEmailAddress(email);
+		Sleep.sleep();
 		clickContinue();
+		if (homePhoneNumber.equals("09898989898"))
+		{
+			confirmEmailAddressBox.click();
+		}
+		Sleep.sleep();
+		WaitForElement.id("PrimaryApplicant_CurrentAddressPostcode", driver);
 	}
 	
 	

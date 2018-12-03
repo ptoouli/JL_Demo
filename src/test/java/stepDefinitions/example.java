@@ -18,17 +18,16 @@ public class example
 	    applyinitialpage.applyForNewCard(colour);
 	}
 
-	@When("^My details are (.*) (.*) (\\d+) (.*) (.*) (.*)$")
-	public void iSelectACard(String firstName, String surname,String homePhoneNumber,String email, String post, String code) throws Throwable 
+	@When("^My details are (\\d+) (.*)$")
+	public void iSelectACard(String homePhoneNumber,String email) throws Throwable 
 	{
-		String postcode = post + " " + code;
-	    CompleteApplyDetailsAll.apply(firstName, surname, homePhoneNumber, email, postcode);
+		CompleteApplyDetailsAll.apply(homePhoneNumber, email);
 	}
 
 	@Then("^I have applied for a card$")
 	public void iHaveAppliedForACard() throws Throwable 
 	{
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 	}
 

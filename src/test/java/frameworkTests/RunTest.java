@@ -10,7 +10,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 	features={"src//test//resources//features"}
 	,glue={"stepDefinitions","utility"}
 	,plugin = {"pretty", "html:target/cucumber"}
-	, tags ={"@demo3"}
+	, tags ={"@demo2"}
 //	, tags = {"~@unit"}
 )
 

@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.ConfigFileReader;
+import utilities.Sleep;
 import utilities.WaitForElement;
 
 public class Apply3FinancesPage extends ApplyBasePage
@@ -61,29 +63,33 @@ public class Apply3FinancesPage extends ApplyBasePage
 	
 	public void inputsortcodeA()
 	{
-		Random random = new Random();
-		String input = Integer.toString(random.nextInt(90) + 10);
+		//Random random = new Random();
+		//String input = Integer.toString(random.nextInt(90) + 10);
+		String input = "77";
 		sortcodeABox.sendKeys(input);
 	}
 	
 	public void inputsortcodeB()
 	{
-		Random random = new Random();
-		String input = Integer.toString(random.nextInt(90) + 10);
+		//Random random = new Random();
+		//String input = Integer.toString(random.nextInt(90) + 10);
+		String input = "49";
 		sortcodeBBox.sendKeys(input);
 	}
 	
 	public void inputsortcodeC()
 	{
-		Random random = new Random();
-		String input = Integer.toString(random.nextInt(90) + 10);
+		//Random random = new Random();
+		//String input = Integer.toString(random.nextInt(90) + 10);
+		String input = "26";
 		sortcodeCBox.sendKeys(input);
 	}
 	
 	public void inputAccountNumber()
 	{
-		Random random = new Random();
-		String input = Integer.toString(random.nextInt(90000000) + 10000000);
+		//Random random = new Random();
+		//String input = Integer.toString(random.nextInt(90000000) + 10000000);
+		String input = "38898768";
 		accountNumberBox.sendKeys(input);
 	}
 	
@@ -102,11 +108,17 @@ public class Apply3FinancesPage extends ApplyBasePage
 	public void inputAccountDetails()
 	{
 		inputsortcodeA();
+		Sleep.sleep();
 		inputsortcodeB();
+		Sleep.sleep();
 		inputsortcodeC();
+		Sleep.sleep();
 		inputAccountNumber();
+		Sleep.sleep();
 		selectAccountAgeMonth();
+		Sleep.sleep();
 		selectAccountAgeYear();
+		Sleep.sleep();
 	}
 	
 	public void selectEmploymentStatus()
@@ -197,9 +209,10 @@ public class Apply3FinancesPage extends ApplyBasePage
 		employerAddressCountyBox.sendKeys(employersCounty);
 	}
 	
-	public void inputEmployersPostcode(String employersPostcode)
+	public void inputEmployersPostcode()
 	{
 		employerAddressPostcodeBox.clear();
+		String employersPostcode = ConfigFileReader.getRandomPostcode();
 		employerAddressPostcodeBox.sendKeys(employersPostcode);
 	}
 	
@@ -225,19 +238,33 @@ public class Apply3FinancesPage extends ApplyBasePage
 	public void inputEmployerDetailsValid()
 	{
 		selectEmploymentStatus();
+		Sleep.sleep();
 		selectEmploymentType();
+		Sleep.sleep();
 		selectBusinessRole();
+		Sleep.sleep();
 		inputJobTitle("jobTitle");
+		Sleep.sleep();
 		inputEmployersName("employersName");
+		Sleep.sleep();
 		inputEmployersAddressNumber("employersHouseNameNumber");
+		Sleep.sleep();
 		inputEmployersAddressLineOne("employersAddressLineOne");
+		Sleep.sleep();
 		inputEmployersAddressLineTwo("employersAddressLineTwo");
+		Sleep.sleep();
 		inputEmployersTown("employersTown");
+		Sleep.sleep();
 		inputEmployersCounty("employersCounty");
-		inputEmployersPostcode("postcd");
+		Sleep.sleep();
+		inputEmployersPostcode();
+		Sleep.sleep();
 		selectStartWorkingMonth();
+		Sleep.sleep();
 		selectStartWorkingYear();
+		Sleep.sleep();
 		selectPaymentFrequency();
+		Sleep.sleep();
 		
 	}
 	

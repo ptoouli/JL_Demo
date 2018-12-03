@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.Sleep;
 import utilities.WaitForElement;
 
 public class ApplyInitialPage extends ApplyBasePage
@@ -71,8 +72,11 @@ public class ApplyInitialPage extends ApplyBasePage
 	public void applyForNewCard(String colour)
 	{
 		acceptCookies();
+		Sleep.sleep();
 		selectCardOption(colour);
+		Sleep.sleep();
 		continueButton.click();
+		Sleep.sleep();
 		utilities.WaitForElement.xpath("//*[@id=\"ApplyMainPage\"]/form", driver);
 	}
 	

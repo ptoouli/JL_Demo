@@ -75,6 +75,12 @@ public class BasePage
 	{
 		Actions action = new Actions(driver);
 		action.moveToElement(partnershipCardDropDown).perform();
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		utilities.WaitForElement.xpath("//*[@id=\"nav-container\"]/div[2]/div/div/div/div/div/ul/li[2]/div/div", driver);
 	}
 	

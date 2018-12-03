@@ -31,7 +31,7 @@ public class Hook {
 		driver = DriverFactory.driver;
 		String url = ConfigFileReader.getEnvironmentURL(environment);
 		driver.get(url);
-		WaitForElement.xpath("//*[@id=\"nav-container\"]/div[2]/div/div/div/div/div/ul/li[1]", driver);
+		//WaitForElement.xpath("//*[@id=\"nav-container\"]/div[2]/div/div/div/div/div/ul/li[1]", driver);
 		BasePage basepage = new BasePage(driver);
 	}
 	
@@ -47,16 +47,16 @@ public class Hook {
 		driver = DriverFactory.driver;
 		String url = ConfigFileReader.getEnvironmentURL(environment);
 		driver.get(url);
-		WaitForElement.xpath("//*[@id=\"nav-container\"]/div[2]/div/div/div/div/div/ul/li[1]", driver);
+		//WaitForElement.xpath("//*[@id=\"nav-container\"]/div[2]/div/div/div/div/div/ul/li[1]", driver);
 		BasePage basepage = new BasePage(driver);
 	}
 	
-	@Before("@iPhone")
+	@Before("@iPad")
 	public void setUpiPhone()
 	{
 		String browserType = "chrome";
 		Boolean runHeadless = false;
-		String windowSize = "iPhoneLandscapeScreenSize";
+		String windowSize = "iPadLandscapeScreenSize";
 		environment = "prodURL";
 		
 		DriverFactory.open(browserType, runHeadless, windowSize);
@@ -78,7 +78,7 @@ public class Hook {
 		driver = DriverFactory.driver;
 		String url = ConfigFileReader.getEnvironmentURL(environment);
 		driver.get(url);
-		WaitForElement.xpath("//*[@id=\"nav-container\"]/div[2]/div/div/div/div/div/ul/li[1]", driver);
+		//WaitForElement.xpath("//*[@id=\"nav-container\"]/div[2]/div/div/div/div/div/ul/li[1]", driver);
 		BasePage basepage = new BasePage(driver);
 	}
 	
@@ -94,7 +94,7 @@ public class Hook {
 		driver = DriverFactory.driver;
 		String url = ConfigFileReader.getEnvironmentURL(environment);
 		driver.get(url);
-		WaitForElement.xpath("//*[@id=\"nav-container\"]/div[2]/div/div/div/div/div/ul/li[1]", driver);
+		//WaitForElement.xpath("//*[@id=\"nav-container\"]/div[2]/div/div/div/div/div/ul/li[1]", driver);
 		BasePage basepage = new BasePage(driver);
 	}
 	

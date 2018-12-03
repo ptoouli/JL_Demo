@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.Random;
  
 public class ConfigFileReader 
 {
@@ -15,23 +16,43 @@ public class ConfigFileReader
 
 	public static String getDefectScreenshot() 
 	{
-		String omsProducts = properties.getProperty("defectScreenshotPath");
-		return omsProducts;
+		return properties.getProperty("defectScreenshotPath");
 	}
 	
 
 	public static String getEnvironmentURL(String environment) 
 	{
-		String envURL = properties.getProperty(environment);
-		return envURL;
+		return properties.getProperty(environment);
 	}
 	
 	public String getWindowSize(String windowSize) 
 	{
-		String wSize = properties.getProperty(windowSize);
-		return wSize;
+		return properties.getProperty(windowSize);
 	}
 	
+	public static String getRandomPostcode() 
+	{
+		Random random = new Random();
+		int pstcd = random.nextInt(39);
+		String postcode = "ptcd" + pstcd;
+		return properties.getProperty(postcode);
+	}
+	
+	public static String getRandomFirstName() 
+	{
+		Random random = new Random();
+		int fname = random.nextInt(19);
+		String firstname = "fname" + fname;
+		return properties.getProperty(firstname);
+	}
+	
+	public static String getRandomSurname() 
+	{
+		Random random = new Random();
+		int sname = random.nextInt(19);
+		String surname = "sname" + sname;
+		return properties.getProperty(surname);
+	}
 
 	public ConfigFileReader()
 	{
