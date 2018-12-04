@@ -78,7 +78,6 @@ public class Apply2AddressDetailsPage extends ApplyBasePage
 		selectYearsAtAddressMoreThanThree();
 		Sleep.sleep();
 		driver.findElement(By.id("continue_address")).click();
-		WaitForElement.id("finances", driver);
 		Sleep.sleep();
 	}
 	

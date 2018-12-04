@@ -33,7 +33,7 @@ public class ConfigFileReader
 	public static String getRandomPostcode() 
 	{
 		Random random = new Random();
-		int pstcd = random.nextInt(39);
+		int pstcd = random.nextInt(39) + 1;
 		String postcode = "ptcd" + pstcd;
 		return properties.getProperty(postcode);
 	}
@@ -41,7 +41,7 @@ public class ConfigFileReader
 	public static String getRandomFirstName() 
 	{
 		Random random = new Random();
-		int fname = random.nextInt(19);
+		int fname = random.nextInt(19) + 1;
 		String firstname = "fname" + fname;
 		return properties.getProperty(firstname);
 	}
@@ -49,7 +49,7 @@ public class ConfigFileReader
 	public static String getRandomSurname() 
 	{
 		Random random = new Random();
-		int sname = random.nextInt(19);
+		int sname = random.nextInt(19) + 1;
 		String surname = "sname" + sname;
 		return properties.getProperty(surname);
 	}

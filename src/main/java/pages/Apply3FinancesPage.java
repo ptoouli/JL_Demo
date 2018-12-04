@@ -35,6 +35,23 @@ public class Apply3FinancesPage extends ApplyBasePage
 	@FindBy(id="PrimaryApplicant_EmploymentStatus")
 	public WebElement employmentStatusDropdown;
 	
+	@FindBy(id="PrimaryApplicant_GrossAnnualIncome")
+	public WebElement grossAnnualIncomeBox;
+	@FindBy(id="PrimaryApplicant_PartnerGrossAnnualIncome")
+	public WebElement partnerGrossAnnualIncomeBox;
+	@FindBy(css="#incomeAndOutgoings > div:nth-child(8) > div:nth-child(1) > div:nth-child(4) > a:nth-child(2)")
+	public WebElement foreseeAnyChangesNoButton;
+	@FindBy(css="#incomeAndOutgoings > div:nth-child(8) > div:nth-child(3) > div:nth-child(4) > a:nth-child(2) > span:nth-child(1) > label:nth-child(2)")
+	public WebElement internationalTransfersNoButton;
+	@FindBy(id="PrimaryApplicant_HowMuchCashWillTransferToYourPartnershipCardEachMonth")
+	public WebElement howMuchBalancePayCashEachMonthBox;
+	@FindBy(id="PrimaryApplicant_HowMuchCashPlanToWithdrawFromYourPartnershipCardEachMonth")
+	public WebElement howMuchCashWithdrawalEachMonthBox;
+	@FindBy(css="#incomeAndOutgoings > div:nth-child(8) > div:nth-child(7) > div:nth-child(4) > a:nth-child(2) > span:nth-child(1) > label:nth-child(2)")
+	public WebElement anyoneElseFundingPartnershipCardEachMonthNo;
+	@FindBy(id="continue_finances")
+	public WebElement continueButton;
+	
 	public WebElement employmentTypeDropdown;
 	
 	public WebElement businessRoleDropdown;
@@ -121,7 +138,7 @@ public class Apply3FinancesPage extends ApplyBasePage
 		Sleep.sleep();
 	}
 	
-	public void selectEmploymentStatus()
+	public void selectEmploymentStatusE()
 	{
 		Select empStatus = new Select (employmentStatusDropdown);
 		empStatus.selectByValue("E");
@@ -163,8 +180,7 @@ public class Apply3FinancesPage extends ApplyBasePage
 	
 	public void selectBusinessRole()
 	{
-		Select busRole = new Select (businessRoleDropdown);
-		busRole.selectByIndex(new Random().nextInt(busRole.getOptions().size() - 1) + 1);
+		new Select (businessRoleDropdown).selectByValue("E");
 	}
 	
 	public void inputJobTitle(String jobTitle)
@@ -234,10 +250,9 @@ public class Apply3FinancesPage extends ApplyBasePage
 		pay.selectByIndex(new Random().nextInt(pay.getOptions().size() - 1) + 1);
 	}
 	
-	
 	public void inputEmployerDetailsValid()
 	{
-		selectEmploymentStatus();
+		selectEmploymentStatusE();
 		Sleep.sleep();
 		selectEmploymentType();
 		Sleep.sleep();
@@ -268,7 +283,90 @@ public class Apply3FinancesPage extends ApplyBasePage
 		
 	}
 	
+	public void selectEmploymentStatusS()
+	{
+		Select empStatus = new Select (employmentStatusDropdown);
+		empStatus.selectByValue("S");	
+		
+		try 
+		{
+			Thread.sleep(1500);
+		} catch (InterruptedException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		empStatus.selectByValue("E");	
+		
+		try 
+		{
+			Thread.sleep(1500);
+		} 
+		catch (InterruptedException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		empStatus.selectByValue("S");
+	}
 	
+	public void inputIncome()
+	{
+		grossAnnualIncomeBox.clear();
+		grossAnnualIncomeBox.sendKeys("30000");
+	}
+	
+	public void inputPartnerIncome()
+	{
+		partnerGrossAnnualIncomeBox.clear();
+		partnerGrossAnnualIncomeBox.sendKeys("30000");
+	}
+	
+	public void selectForeseenChanges()
+	{
+		foreseeAnyChangesNoButton.click();
+	}
+	
+	public void selectInternationalPayment()
+	{
+		internationalTransfersNoButton.click();
+	}
+	
+	public void inputPayOffCash()
+	{
+		howMuchBalancePayCashEachMonthBox.clear();
+		howMuchBalancePayCashEachMonthBox.sendKeys("0");
+	}
+	
+	public void inputCashWithdrawal()
+	{
+		howMuchCashWithdrawalEachMonthBox.clear();
+		howMuchCashWithdrawalEachMonthBox.sendKeys("0");
+	}
+	
+	public void selectOtherFunding()
+	{
+		anyoneElseFundingPartnershipCardEachMonthNo.click();
+	}
+
+	public void inputAllIncomeAndOutgoings()
+	{
+		inputIncome();
+		Sleep.sleep();
+		inputPartnerIncome();
+		Sleep.sleep();
+		selectForeseenChanges();
+		Sleep.sleep();
+		selectInternationalPayment();
+		Sleep.sleep();
+		inputPayOffCash();
+		Sleep.sleep();
+		inputCashWithdrawal();
+		Sleep.sleep();
+		selectOtherFunding();
+		Sleep.sleep();
+		continueButton.click();
+	}
 	
  	public Apply3FinancesPage()
 	{

@@ -11,7 +11,7 @@ public class example
 {
 	
 	@Given("^I am a new user applying for a (.*) card$")//I have 
-	public void iAmANewUser(String colour) throws Throwable 
+	public void iAmANewUser(String colour) 
 	{
 		BasePage.applyNowPartnershipCardDropDown_ApplyNow();
 		ApplyInitialPage applyinitialpage = new ApplyInitialPage();
@@ -19,15 +19,28 @@ public class example
 	}
 
 	@When("^My details are (\\d+) (.*)$")
-	public void iSelectACard(String homePhoneNumber,String email) throws Throwable 
+	public void iSelectACard(String homePhoneNumber,String email) 
 	{
 		CompleteApplyDetailsAll.apply(homePhoneNumber, email);
 	}
+	
+	@When("^I am a Student$")
+	public void iRegisterAsAStudent()
+	{
+		CompleteApplyDetailsAll.applyStudent();
+	}
 
 	@Then("^I have applied for a card$")
-	public void iHaveAppliedForACard() throws Throwable 
+	public void iHaveAppliedForACard() 
 	{
-		Thread.sleep(2000);
+		try 
+		{
+			Thread.sleep(2000);
+		} 
+		catch (InterruptedException e) 
+		{
+			e.printStackTrace();
+		}
 		
 	}
 

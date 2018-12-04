@@ -10,6 +10,15 @@ public class CompleteApply3
 		Apply3FinancesPage apply3financepage = new Apply3FinancesPage();
 		apply3financepage.inputAccountDetails();
 		apply3financepage.inputEmployerDetailsValid();
+		apply3financepage.inputAllIncomeAndOutgoings();
+	}
+	
+	public static void applyStudent()
+	{
+		Apply3FinancesPage apply3financepage = new Apply3FinancesPage();
+		apply3financepage.inputAccountDetails();
+		apply3financepage.selectEmploymentStatusS();
+		apply3financepage.inputAllIncomeAndOutgoings();
 	}
 	
 }

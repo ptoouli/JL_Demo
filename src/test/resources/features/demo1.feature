@@ -1,4 +1,7 @@
-Feature: Card Web Applications
+Feature: Card Colour Selection
+	As a product owner
+	I want new applicants to be able to select the colour of their card
+	So that there is more personalisation for the customer
 
   @chrome @demo1
   Scenario Outline: Validate i can select different colour cards
@@ -9,6 +12,8 @@ Feature: Card Web Applications
 	Examples: 
     | colour | home phone number | email				          | 
     | black  | 01201230123       | example@example.com    | 
+
+
 
 
 

@@ -1,14 +1,17 @@
 package utilities;
 
-public class Sleep{
+public class Sleep
+{
 	
 	public static void sleep () 
 	{
 	
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+		try 
+		{
+			Thread.sleep(100);
+		} 
+		catch (InterruptedException e) 
+		{
 			e.printStackTrace();
 		}
 		

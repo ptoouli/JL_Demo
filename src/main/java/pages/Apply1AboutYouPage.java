@@ -89,6 +89,8 @@ public class Apply1AboutYouPage extends ApplyBasePage
 	public WebElement continueButton;
 	
 	
+	public static String firstName, surname;
+	
 	public void inputPromoCode(String promoCode)
 	{
 		promoCodeBox.clear();
@@ -104,7 +106,7 @@ public class Apply1AboutYouPage extends ApplyBasePage
 	public void inputFirstName()
 	{
 		firstNameBox.clear();
-		String firstName = ConfigFileReader.getRandomFirstName();
+		firstName = ConfigFileReader.getRandomFirstName();
 		firstNameBox.sendKeys(firstName);
 	}
 	
@@ -117,7 +119,7 @@ public class Apply1AboutYouPage extends ApplyBasePage
 	public void inputSurname()
 	{
 		surnameBox.clear();
-		String surname = ConfigFileReader.getRandomSurname();
+		surname = ConfigFileReader.getRandomSurname();
 		surnameBox.sendKeys(surname);
 	}
 	
@@ -140,7 +142,7 @@ public class Apply1AboutYouPage extends ApplyBasePage
 	public void selectDayOfBirth()
 	{
 		Select dob = new Select (dateOfBirthDayDropDown);
-		dob.selectByIndex(new Random().nextInt(dob.getOptions().size() - 1) + 1);
+		dob.selectByIndex(new Random().nextInt(dob.getOptions().size() - 4) + 1);
 	}
 	
 	public void selectMonthOfBirth()
@@ -250,7 +252,6 @@ public class Apply1AboutYouPage extends ApplyBasePage
 			confirmEmailAddressBox.click();
 		}
 		Sleep.sleep();
-		WaitForElement.id("PrimaryApplicant_CurrentAddressPostcode", driver);
 	}
 	
 	

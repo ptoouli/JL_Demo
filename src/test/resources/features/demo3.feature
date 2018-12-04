@@ -1,5 +1,7 @@
-Feature: Card Web Applications 3
-
+Feature: Card Web Applications
+	As a product owner
+	I want the web application to work on all browsers
+	So that there is less customer frustration
 
   @chrome @demo3
   Scenario Outline: Validate i can select different colour cards

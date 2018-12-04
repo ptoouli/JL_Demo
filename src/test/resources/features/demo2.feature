@@ -1,5 +1,7 @@
-Feature: Title of your feature
-  I want to use this template for my feature file
+Feature: Card Colour Selection
+	As a product owner
+	I want new applicants to be able to select the colour of their card
+	So that there is more personalisation for the customer
 
   @chrome @demo2
   Scenario Outline: Validate i can select different colour cards
@@ -14,3 +16,14 @@ Feature: Title of your feature
     | black  | 01876543210       | example2@example.com   | 
     | pink   | 09898989898       | example3@example.com   | 
 
+
+  @chrome @Demo2
+  Scenario Outline: Validate i can apply as a student
+    Given I am a new user applying for a <colour> card
+    When I am a Student
+    Then I have applied for a card
+
+	Examples: 
+    | colour |
+    | pink   |
+    
