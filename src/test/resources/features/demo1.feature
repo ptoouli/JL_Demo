@@ -1,7 +1,5 @@
 Feature: Card Colour Selection
-	As a product owner
-	I want new applicants to be able to select the colour of their card
-	So that there is more personalisation for the customer
+
 
   @chrome @demo1
   Scenario Outline: Validate i can select different colour cards
